@@ -1,0 +1,20 @@
+<!doctype html>
+<title>multi method fileupload</title>
+<script src="fileupload.js"></script>
+<script src="main.js"></script>
+
+<form id="form">
+  <ul id="fileList">
+  </ul>
+  <input type="file" id="fileInput" hidden accept="image/*;capture=camera">
+  <input type="button" id="fileSelectButton" value="ファイルを選択">
+  <input type="button" id="webcamButton" value="Webカメラを起動">
+  <input type="button" id="qrCodeButton" value="スマートフォンで撮影">
+
+  <div id="webcam" style="display: none;">
+    <video id="webcamVideo"></video>
+    <input type="button" id="stopButton" value="撮影">
+    <input type="button" id="okButton" value="この画像で確定">
+    <input type="button" id="cancelButton" value="キャンセル">
+  </div>
+</form>
