@@ -109,4 +109,10 @@ main = ->
       @style.background = 'transparent'
       fileList.add file
 
+  $('submitButton').addEventListener 'click', ->
+    form = $ 'form'
+    data = new FormData form
+    fileList.getAll().forEach (f) -> data.append 'file', f
+    form.submit()
+
 document.addEventListener 'DOMContentLoaded', main

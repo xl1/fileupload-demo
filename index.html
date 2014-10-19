@@ -3,13 +3,13 @@
 <script src="fileupload.js"></script>
 <script src="main.js"></script>
 
-<form id="form">
+<form id="form" enctype="multipart/form-data" method="post" action="#">
   <ul id="fileList">
   </ul>
   <input type="file" id="fileInput" hidden accept="image/*;capture=camera">
   <input type="button" id="fileSelectButton" value="ファイルを選択">
   <input type="button" id="webcamButton" value="Webカメラを起動">
-  <input type="button" id="qrCodeButton" value="スマートフォンで撮影">
+  <input type="button" id="submitButton" value="送信">
 
   <div id="dropzone" style="border: 4px dashed tomato">
     <p>
