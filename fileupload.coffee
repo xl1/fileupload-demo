@@ -23,6 +23,23 @@ class FileSelector extends IFileSelector
   get: ->
     new Promise (@_resolve, @_reject) => @el.click()
 
+class DragDropSelector extends IFileSelector
+  constructor: (@el) ->
+    @el.addEventListener 'dragover', (e) ->
+      e.stopPropagation()
+      e.preventDefault()
+      e.dataTransfer.dropEffect = 'copy'
+    @el.addEventListener 'drop', (e) =>
+      e.stopPropagation()
+      e.preventDefault()
+      files = e.dataTransfer.files
+      if files.length
+        @_resolve? files[0]
+
+  get: ->
+    new Promise (@_resolve, @_reject) =>
+
 window.FileUpload = {
   FileSelector
+  DragDropSelector
 }

@@ -97,4 +97,12 @@ main = ->
   $('cancelButton').addEventListener 'click', ->
     $('webcam').style.display = 'none'
 
+  dropzone = $ 'dropzone'
+  dnd = new FileUpload.DragDropSelector dropzone
+  dropzone.addEventListener 'dragenter', ->
+    @style.background = 'yellow'
+    dnd.get().then (file) =>
+      @style.background = 'transparent'
+      fileList.add file
+
 document.addEventListener 'DOMContentLoaded', main
