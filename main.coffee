@@ -20,6 +20,10 @@ class WebCam
     new Promise (resolve, reject) =>
       if not @enabled
         reject 'getUserMedia is not supported'
+      if @video.src
+        @video.play()
+        resolve @video
+        return
       getUserMedia.call navigator,
         video: true
         (src) =>
